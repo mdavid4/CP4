@@ -11,7 +11,8 @@
         <router-view />
     </div>
     <div class="footer">
-        <router-link to="/admin">Admin</router-link>
+        <router-link to="/admin">Pizzaiolo's Page</router-link>
+        <a href="https://github.com/mdavid4/CP4">This project's Github</a>
     </div>
 </div>
 </template>
@@ -37,6 +38,18 @@ body {
     color: #FFFFFF;
 }
 
+a:link,
+a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    color: #f80;
+    text-decoration: none;
+}
+
 .title {
     margin-top: 5px;
 }
@@ -52,14 +65,27 @@ body {
 
 /* Footer */
 .footer {
-    height: 50px;
-    padding: 20px 100px 0px 100px;
-    background: #e3e3e3;
-    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #905000;
+    padding: 2px 0.5em;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+    height: 2em;
 }
 
-.footer a {
-    color: #000;
+.page {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 2.5em;
+}
+
+.footer a,
+.footer p {
+    margin-top: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 h1 {

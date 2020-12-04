@@ -23,7 +23,7 @@
     </section>
     <h3> Pizzas: </h3>
     <section class="pizzas">
-        <div class="pizza" v-for="pizza in pizzas" :key="pizza.id">
+        <div class="pizza" v-for="pizza in selectedPizzas" :key="pizza.id">
             <h2>{{pizza.name}}</h2>
             <p class="price">${{priceOf(pizza)}}</p>
             <p>ingredients:</p>
@@ -53,6 +53,22 @@ export default {
         this.getIngredients();
         this.getPizzas();
     },
+    computed: {
+        selectedPizzas() {
+            let tuples = this.pizzas.map(p => [true, p]);
+            for (let tuple of tuples) {
+                for (let index = 0; index < this.ingredients.length; index++) {
+                    let foundInPizza = tuple[1].ingredients.map(x => x.title).indexOf(this.ingredients[index].title);
+                    if (this.checked[index] && foundInPizza < 0) {
+                        tuple[0] = false;
+                    } else if (this.forbidden[index] && foundInPizza >= 0) {
+                        tuple[0] = false;
+                    }
+                }
+            }
+            return tuples.filter(t => t[0]).map(t => t[1]);
+        },
+    },
     methods: {
         ingredientByID(id) {
             for (let i = 0; i < this.ingredients.length; i++) {
@@ -68,8 +84,6 @@ export default {
         priceOf(pizza) {
             let price = 10;
             for (let ingredient of pizza.ingredients) {
-                //console.log(id);
-                //console.log(this.ingredientByID(id));
                 price += ingredient.cost;
             }
             return this.formatPrice(price);
