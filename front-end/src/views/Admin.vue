@@ -103,7 +103,7 @@ export default {
                 });
                 this.getIngredients();
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async getIngredients() {
@@ -112,7 +112,7 @@ export default {
                 this.ingredients = response.data;
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async getPizzas() {
@@ -121,7 +121,7 @@ export default {
                 this.pizzas = response.data;
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async deleteIngredient(ingredient) {
@@ -130,7 +130,7 @@ export default {
                 this.getIngredients();
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async deletePizza(pizza) {
@@ -139,7 +139,7 @@ export default {
                 this.getPizzas();
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async editPizza(pizza) {
@@ -153,7 +153,7 @@ export default {
                 this.getPizzas();
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
     },

@@ -107,7 +107,7 @@ export default {
                 }
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async getPizzas() {
@@ -116,7 +116,7 @@ export default {
                 this.pizzas = response.data;
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async makePizza() {
@@ -128,7 +128,7 @@ export default {
                 this.getPizzas();
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
         async upVote(pizza) {
@@ -137,7 +137,7 @@ export default {
                 this.getPizzas();
                 return true;
             } catch (error) {
-                console.log(error);
+                //console.log(error);
             }
         },
     }
